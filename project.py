@@ -22,7 +22,6 @@ def main():
     Main function that demonstrates the use of sum_of_two_numbers
     by calculating and printing the sum of 1 and 5.
     """
-    f=6
     # Call the function with arguments 1 and 5, store the result in the variable result_sum
     result_sum = sum_of_two_numbers(1, 5)
     # Print the result to the console
