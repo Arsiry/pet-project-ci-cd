@@ -38,10 +38,4 @@ jobs:
             -e SONAR_TOKEN=$SONAR_TOKEN \
             -v $(pwd):/usr/src \
             sonarsource/sonar-scanner-cli \
-            sonar-scanner \
-              -Dsonar.projectKey=sum-two-numbers \
-              -Dsonar.sources=. \
-              -Dsonar.host.url=$SONAR_HOST_URL \
-              -Dsonar.login=$SONAR_TOKEN \
-              -Dsonar.python.coverage.reportPaths=coverage.xml
-
+            sonar-scanner
