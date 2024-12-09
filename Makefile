@@ -6,4 +6,5 @@ codestyle:
 	python -m pylint **/*.py
 
 test:
-	python -m unittest discover -s . -p "*tests*.py"
+	coverage run --source=. -m unittest discover -s . -p "*tests*.py"
+	coverage xml

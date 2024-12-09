@@ -25,5 +25,18 @@ jobs:
       - name: Run code style checks
         run: make codestyle
 
-      - name: Run tests
+      - name: Run tests and generate coverage
         run: make test
+      
+      - name: Run SonarQube analysis
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=sum-two-numbers \
+            -Dsonar.sources=. \
+            -Dsonar.host.url=$SONAR_HOST_URL \
+            -Dsonar.login=$SONAR_TOKEN \
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+
