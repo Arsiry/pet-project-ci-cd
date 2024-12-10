@@ -23,7 +23,7 @@ To run unit tests, you need to execute the command in the terminal
   make init test
 ```
 
-## how to execute project
+## How to execute project
 To run the project, you need to execute the command in the terminal
 ```
   make init
