@@ -31,5 +31,5 @@ To run unit tests, you need to execute the command in the terminal
 To run the project, you need to execute the command in the terminal
 ```
   make init
-  python project_sum_two_numbers.py
+  python -m project_sum_two_numbers.main
 ```
