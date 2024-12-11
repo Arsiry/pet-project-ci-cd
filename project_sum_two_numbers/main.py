@@ -1,5 +1,5 @@
 """
-The main function and demonstration code.
+The main function and demonstration code
 """
 
 # Function to calculate the sum of two numbers
