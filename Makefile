@@ -13,3 +13,5 @@ test:
 build:
 	python setup.py sdist bdist_wheel
 
+deploy:
+	aws s3 cp dist/*.whl s3://project-sum-two-numbers-wheels/path/
