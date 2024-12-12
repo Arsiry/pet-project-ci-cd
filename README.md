@@ -6,7 +6,6 @@
 Simple python "pet" project for sum of two numbers calculation
 Task: Learn and apply CI/CD principles and tools
 
-
 ## Content
 * `project_sum_two_numbers\`, simple python project (sum of two numbers calculating)
 * `project_sum_two_numbers\main.py`, the main function and demonstration code
