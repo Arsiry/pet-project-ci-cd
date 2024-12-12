@@ -44,8 +44,7 @@ def main():
     by allowing user input and calculating the sum of two numbers.
     """
     a, b = get_user_input()
-    result_sum = sum_of_two_numbers(a, b)
-    print(f"The sum of {a} and {b} is {result_sum}")
+    print(f"The sum of {a} and {b} is {sum_of_two_numbers(a, b)}")
 
 
 if __name__ == "__main__":
