@@ -6,9 +6,9 @@ codestyle:
 	python -m pylint **/*.py
 
 test:
-#	coverage run --source=. -m unittest discover -s . -p "*tests*.py"
-#	coverage xml
-	python unit_tests.py
+	coverage run --source=. -m unittest discover -s . -p "*tests*.py"
+	coverage xml
+#	python unit_tests.py
 
 build:
 	python setup.py sdist bdist_wheel

@@ -11,14 +11,14 @@ Task: Learn and apply CI/CD principles and tools
 * `project_sum_two_numbers\`, simple python project (sum of two numbers calculating)
 * `project_sum_two_numbers\main.py`, the main function and demonstration code
 * `project_sum_two_numbers\__init__.py`, imports and makes the function sum_of_two_numbers from main.py accessible
-* `unit_tests.py`, unit tests
-* `setup.py`, 
+* `unit_tests.py`, unit tests for python code
+* `setup.py`, python package description
 * `requirements.txt`, file with prod dependencies
 * `requireents-dev.txt`, file with dev dependencies
 * `sonar-project.properties`, settings for configuring code analysis in SonarQube
 * `Makefile`, make file to check codestyle, run tests, check test coverage
 * `.github\workflows\ci.yml`, CI pipeline for automated code linting, code testing and to ensure full test coverage of the code
-* `.github\workflows\cd.yml`, CD pipeline for automated build a python package (wheel file) ...
+* `.github\workflows\cd.yml`, CD pipeline for automated build a python package (wheel file), upload package to AWS S3 Bucket
 
 ## How to check codestyle
 To check codestyle, you need to execute the command in the terminal
