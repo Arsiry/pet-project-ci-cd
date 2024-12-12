@@ -1,6 +1,7 @@
 name: Continuous Deployment (CD)
 
 on:
+    workflow_dispatch:
     push:
       branches: [ "**" ]
 
