@@ -2,6 +2,9 @@
 
 [![Quality Gate Status](http://3.144.23.128:9000/api/project_badges/measure?project=sum-two-numbers&metric=alert_status&token=sqb_1248e64573abae406ef0aa50c601fa4631c35c91)](http://3.144.23.128:9000/dashboard?id=sum-two-numbers)
 
+[![Code Smells](http://3.144.23.128:9000/api/project_badges/measure?project=sum-two-numbers&metric=code_smells&token=sqb_1248e64573abae406ef0aa50c601fa4631c35c91)](http://3.144.23.128:9000/dashboard?id=sum-two-numbers)
+
+[![Coverage](http://3.144.23.128:9000/api/project_badges/measure?project=sum-two-numbers&metric=coverage&token=sqb_1248e64573abae406ef0aa50c601fa4631c35c91)](http://3.144.23.128:9000/dashboard?id=sum-two-numbers)
 
 Simple python "pet" project for sum of two numbers calculation
 Task: Learn and apply CI/CD principles and tools
