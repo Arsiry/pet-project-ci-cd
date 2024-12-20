@@ -7,6 +7,7 @@ This script includes:
 - A main function to coordinate input, calculation, and output.
 """
 
+
 # Function to calculate the sum of two numbers
 def sum_of_two_numbers(a, b):
     """
