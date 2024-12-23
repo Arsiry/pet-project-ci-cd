@@ -15,3 +15,4 @@ build:
 
 deploy:
 	aws s3 cp dist/*.whl s3://project-sum-two-numbers-wheels/path/
+	
