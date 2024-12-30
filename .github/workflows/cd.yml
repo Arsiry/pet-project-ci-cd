@@ -49,14 +49,15 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         with:
             host: ${{ secrets.EC2_HOST }}
-            username: ${{ secrets.EC2_USERNAME }}
+            username: ubuntu
             key: ${{ secrets.EC2_SSH_KEY }}
             port: 22
-            script: |
-              aws s3 cp s3://project-sum-two-numbers-wheels/project_sum_two_numbers-0.1.0-py3-none-any.whl ./project_sum_two_numbers.whl
-              pip3 install ./project_sum_two_numbers.whl
-              python -c << EOF | 
-              from project_sum_two_numbers import get_user_input, sum_of_two_numbers;
-              c = sum_of_two_numbers(2, 3)
-              print(f"result is {c}")
-              EOF
+            script: echo "hi"
+            # script: |
+            #   aws s3 cp s3://project-sum-two-numbers-wheels/project_sum_two_numbers-0.1.0-py3-none-any.whl ./project_sum_two_numbers.whl
+            #   pip3 install ./project_sum_two_numbers.whl
+            #   python -c << EOF | 
+            #   from project_sum_two_numbers import get_user_input, sum_of_two_numbers;
+            #   c = sum_of_two_numbers(2, 3)
+            #   print(f"result is {c}")
+            #   EOF
