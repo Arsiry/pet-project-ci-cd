@@ -1,3 +1,5 @@
+#!/bin/python
+
 """
 Script to calculate the sum of two numbers.
 
@@ -44,8 +46,8 @@ def main():
     Main function that demonstrates the use of sum_of_two_numbers
     by allowing user input and calculating the sum of two numbers.
     """
-    a, b = get_user_input()
-    print(f"The sum of {a} and {b} is {sum_of_two_numbers(a, b)}")
+    result = sum_of_two_numbers(2, 3)
+    print(f"The sum of {result}")
 
 
 if __name__ == "__main__":

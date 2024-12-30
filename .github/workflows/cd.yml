@@ -22,9 +22,9 @@ jobs:
         run: |
           make init
 
-      - name: Build Wheel file
-        run: |
-          make build
+      # - name: Build Wheel file
+      #   run: |
+      #     make build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
@@ -37,7 +37,15 @@ jobs:
         run: |
             make upload
 
-      - name: SSH into EC2, Downloading from S3 and Deploy Project
+      # - name: Build docker image
+      #   run: |
+      #       make build
+
+      # - name: Publish docker image
+      #       run: |
+      #           make publish
+                
+      - name: Execute docker contaier via SSH on EC2
         uses: appleboy/ssh-action@v0.1.10
         with:
             host: ${{ secrets.EC2_HOST }}
@@ -45,21 +53,10 @@ jobs:
             key: ${{ secrets.EC2_SSH_KEY }}
             port: 22
             script: |
-              sudo apt update
-              
-              aws s3 cp s3://project-sum-two-numbers-wheels/path/project_sum_two_numbers-0.1.0-py3-none-any.whl ./project_sum_two_numbers.whl    
-              
-              echo "Creating Dockerfile"
-              cat <<EOL > Dockerfile
-              FROM python:3.10
-              WORKDIR /app-sum-two-numbers
-              COPY ./project_sum_two_numbers.whl /app/project_sum_two_numbers.whl
-              RUN pip install /app-sum-two-numbers/project_sum_two_numbers.whl
-              CMD ["python3", "-c", "from project_sum_two_numbers import get_user_input, sum_of_two_numbers; print('Setup complete')"]
-              EOL
-    
-              docker build -t project_sum_two_numbers .
-    
-              docker rm -f project_sum_two_numbers || true
-    
-              docker run -d --name project_sum_two_numbers project_sum_two_numbers
+              aws s3 cp s3://project-sum-two-numbers-wheels/project_sum_two_numbers-0.1.0-py3-none-any.whl ./project_sum_two_numbers.whl
+              pip3 install ./project_sum_two_numbers.whl
+              python -c << EOF | 
+              from project_sum_two_numbers import get_user_input, sum_of_two_numbers;
+              c = sum_of_two_numbers(2, 3)
+              print(f"result is {c}")
+              EOF
