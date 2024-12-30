@@ -8,6 +8,7 @@ This script includes:
 """
 
 
+
 # Function to calculate the sum of two numbers
 def sum_of_two_numbers(a, b):
     """

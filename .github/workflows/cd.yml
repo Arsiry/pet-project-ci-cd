@@ -35,4 +35,4 @@ jobs:
   
       - name: Upload to S3
         run: |
-            make deploy
+            make upload
