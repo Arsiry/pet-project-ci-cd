@@ -58,7 +58,7 @@ jobs:
               rm -f -r ./.venv
               python3 -m venv venv
               source venv/bin/activate
-              pip3 install ./project_sum_two_numbers-0.1.0-py3-none-any.whl
+              pip3 install --force-reinstall ./project_sum_two_numbers-0.1.0-py3-none-any.whl
               python -c << EOF |
               from project_sum_two_numbers import get_user_input, sum_of_two_numbers;
               c = sum_of_two_numbers(2, 3)
