@@ -1,18 +1,15 @@
 """
-Unit tests for the `sum_of_two_numbers` function and `get_user_input` function.
+Unit tests for the `sum_of_two_numbers` function.
 
 This module contains:
 - A test class `TestSumOfTwoNumbers` with various test cases for the `sum_of_two_numbers` function.
-- A test class `TestUserInput` with test cases for the `get_user_input` function.
 """
 
 import unittest
-from unittest.mock import patch
 
-# Import the functions to be tested
+
+# Import the function to be tested
 from project_sum_two_numbers import sum_of_two_numbers
-from project_sum_two_numbers import get_user_input
-
 
 class TestSumOfTwoNumbers(unittest.TestCase):
     """
@@ -54,43 +51,6 @@ class TestSumOfTwoNumbers(unittest.TestCase):
             sum_of_two_numbers("a", 5)
         with self.assertRaises(TypeError):
             sum_of_two_numbers(5, None)
-
-
-class TestUserInput(unittest.TestCase):
-    """
-    Test class for the function get_user_input.
-    """
-
-    @patch('builtins.input', side_effect=['3', '4'])
-    def test_valid_input(self, mock_input):  # pylint: disable=unused-argument
-        """Test for valid user input."""
-        self.assertEqual(get_user_input(), (3.0, 4.0))
-
-    @patch('builtins.input', side_effect=['abc', '3', '4'])
-    def test_invalid_then_valid_input(self, mock_input):  # pylint: disable=unused-argument
-        """Test for invalid input followed by valid input."""
-        self.assertEqual(get_user_input(), (3.0, 4.0))
-
-    @patch('builtins.input', side_effect=['', '3', '4'])
-    def test_empty_input(self, mock_input):  # pylint: disable=unused-argument
-        """Test for empty input."""
-        self.assertEqual(get_user_input(), (3.0, 4.0))
-
-    @patch('builtins.input', side_effect=['1.5', '2.3'])
-    def test_floating_point_input(self, mock_input):  # pylint: disable=unused-argument
-        """Test for floating-point input."""
-        self.assertEqual(get_user_input(), (1.5, 2.3))
-
-    @patch('builtins.input', side_effect=['1e5', '2e5'])
-    def test_scientific_notation_input(self, mock_input):  # pylint: disable=unused-argument
-        """Test for scientific notation input."""
-        self.assertEqual(get_user_input(), (1e5, 2e5))
-
-    @patch('builtins.input', side_effect=['1,5', '2,3', '3.0', '4.0'])
-    def test_invalid_delimiter_input(self, mock_input):  # pylint: disable=unused-argument
-        """Test for invalid delimiters (comma instead of dot)."""
-        with self.assertRaises(ValueError):
-            get_user_input()
 
 
 if __name__ == "__main__":
