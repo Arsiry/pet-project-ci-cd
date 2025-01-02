@@ -15,7 +15,3 @@ build:
 
 upload:
 	aws s3 cp dist/*.whl s3://project-sum-two-numbers-wheels/
-
-
-deploy:
-	echo "deploy"
