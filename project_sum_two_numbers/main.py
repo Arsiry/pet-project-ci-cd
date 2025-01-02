@@ -1,5 +1,3 @@
-#!/bin/python
-
 """
 Script to calculate the sum of two numbers.
 
@@ -9,6 +7,7 @@ This script includes:
 - A main function to coordinate input, calculation, and output.
 """
 
+import argparse
 
 # Function to calculate the sum of two numbers
 def sum_of_two_numbers(a, b):
@@ -43,11 +42,23 @@ def get_user_input():
 
 def main():
     """
-    Main function that demonstrates the use of sum_of_two_numbers
-    by allowing user input and calculating the sum of two numbers.
+    Main function that supports both command-line arguments and user input.
     """
-    result = sum_of_two_numbers(2, 3)
-    print(f"The sum of {result}")
+    parser = argparse.ArgumentParser(description="Calculate the sum of two numbers.")
+    parser.add_argument("--num1", type=float, help="The first number")
+    parser.add_argument("--num2", type=float, help="The second number")
+    args = parser.parse_args()
+
+    if args.num1 is not None and args.num2 is not None:
+        # Use command-line arguments if provided
+        a, b = args.num1, args.num2
+    else:
+        # Fall back to user input if no arguments are provided
+        print("No command-line arguments provided. Switching to user input.")
+        a, b = get_user_input()
+
+    result = sum_of_two_numbers(a, b)
+    print(f"The sum of {a} and {b} is {result}.")
 
 
 if __name__ == "__main__":
