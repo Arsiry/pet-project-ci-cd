@@ -18,7 +18,8 @@ def sum_of_two_numbers(a, b):
     Returns:
     int, float: The sum of a and b.
     """
-    return a + b
+    result = a + b
+    return result
 
 def main():
     """
