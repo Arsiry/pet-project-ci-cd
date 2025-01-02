@@ -22,9 +22,9 @@ jobs:
         run: |
           make init
 
-      # - name: Build Wheel file
-      #   run: |
-      #     make build
+      - name: Build Wheel file
+        run: |
+          make build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
@@ -32,19 +32,10 @@ jobs:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: ${{ secrets.AWS_REGION }}
-  
-
-      - name: Build docker image
-        run: |
-            make build
 
       - name: Upload to S3
         run: |
             make upload
-
-      # - name: Publish docker image
-      #       run: |
-      #           make publish
                 
       - name: Execute docker contaier via SSH on EC2
         uses: appleboy/ssh-action@v0.1.10
@@ -59,8 +50,8 @@ jobs:
               python3 -m venv venv
               source venv/bin/activate
               pip3 install --force-reinstall ./project_sum_two_numbers-0.1.0-py3-none-any.whl
-              python -c << EOF |
-              from project_sum_two_numbers import get_user_input, sum_of_two_numbers;
+              python -c << EOF
+              from project_sum_two_numbers import get_user_input, sum_of_two_numbers
               c = sum_of_two_numbers(2, 3)
               print(f"result is {c}")
               EOF
