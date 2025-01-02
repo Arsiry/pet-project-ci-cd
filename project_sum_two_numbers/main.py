@@ -6,8 +6,6 @@ This script includes:
 - Command-line argument parsing for input.
 """
 
-import argparse
-
 # Function to calculate the sum of two numbers
 def sum_of_two_numbers(a, b):
     """
@@ -24,16 +22,10 @@ def sum_of_two_numbers(a, b):
 
 def main():
     """
-    Main function that uses command-line arguments for input.
+    Main function
     """
-    parser = argparse.ArgumentParser(description="Calculate the sum of two numbers.")
-    parser.add_argument("--num1", type=float, required=True, help="The first number")
-    parser.add_argument("--num2", type=float, required=True, help="The second number")
-    args = parser.parse_args()
-
-    # Use command-line arguments
-    a, b = args.num1, args.num2
-
+    a = 4
+    b = 5
     result = sum_of_two_numbers(a, b)
     print(f"The sum of {a} and {b} is {result}.")
 
