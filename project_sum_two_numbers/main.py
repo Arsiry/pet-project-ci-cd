@@ -24,10 +24,7 @@ def main():
     """
     Main function
     """
-    a = 4
-    b = 5
-    result = sum_of_two_numbers(a, b)
-    print(f"The sum of {a} and {b} is {result}.")
+    print(f"The sum of 4 and 5 is {sum_of_two_numbers(4, 5)}.")
 
 if __name__ == "__main__":
     main()
