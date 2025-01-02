@@ -62,32 +62,32 @@ class TestUserInput(unittest.TestCase):
     """
 
     @patch('builtins.input', side_effect=['3', '4'])
-    def test_valid_input(self, mock_input):
+    def test_valid_input(self, mock_input):  # pylint: disable=unused-argument
         """Test for valid user input."""
         self.assertEqual(get_user_input(), (3.0, 4.0))
 
     @patch('builtins.input', side_effect=['abc', '3', '4'])
-    def test_invalid_then_valid_input(self, mock_input):
+    def test_invalid_then_valid_input(self, mock_input):  # pylint: disable=unused-argument
         """Test for invalid input followed by valid input."""
         self.assertEqual(get_user_input(), (3.0, 4.0))
 
     @patch('builtins.input', side_effect=['', '3', '4'])
-    def test_empty_input(self, mock_input):
+    def test_empty_input(self, mock_input):  # pylint: disable=unused-argument
         """Test for empty input."""
         self.assertEqual(get_user_input(), (3.0, 4.0))
 
     @patch('builtins.input', side_effect=['1.5', '2.3'])
-    def test_floating_point_input(self, mock_input):
+    def test_floating_point_input(self, mock_input):  # pylint: disable=unused-argument
         """Test for floating-point input."""
         self.assertEqual(get_user_input(), (1.5, 2.3))
 
     @patch('builtins.input', side_effect=['1e5', '2e5'])
-    def test_scientific_notation_input(self, mock_input):
+    def test_scientific_notation_input(self, mock_input):  # pylint: disable=unused-argument
         """Test for scientific notation input."""
         self.assertEqual(get_user_input(), (1e5, 2e5))
 
-    @patch('builtins.input', side_effect=['1,5', '2,3'])
-    def test_invalid_delimiter_input(self, mock_input):
+    @patch('builtins.input', side_effect=['1,5', '2,3', '3.0', '4.0'])
+    def test_invalid_delimiter_input(self, mock_input):  # pylint: disable=unused-argument
         """Test for invalid delimiters (comma instead of dot)."""
         with self.assertRaises(ValueError):
             get_user_input()
