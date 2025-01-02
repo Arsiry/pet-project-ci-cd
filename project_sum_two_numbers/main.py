@@ -18,14 +18,16 @@ def sum_of_two_numbers(a, b):
     Returns:
     int, float: The sum of a and b.
     """
-    result = a + b
-    return result
+    return a + b
 
 def main():
     """
     Main function
     """
-    print(f"The sum of 4 and 5 is {sum_of_two_numbers(4, 5)}.")
+    a = 4
+    b = 5
+    result = a + b
+    print(f"The sum of {a} and {b} is {result}.")
 
 if __name__ == "__main__":
     main()
