@@ -50,4 +50,5 @@ jobs:
               python3 -m venv venv
               source venv/bin/activate
               pip3 install --force-reinstall ./project_sum_two_numbers-0.1.0-py3-none-any.whl
-              python -c "from project_sum_two_numbers import sum_of_two_numbers; print(f'result is {sum_of_two_numbers(2, 3)}')"
+              python -c "from project_sum_two_numbers import sum_of_two_numbers;\
+              print(f'result is {sum_of_two_numbers(2, 3)}')"
