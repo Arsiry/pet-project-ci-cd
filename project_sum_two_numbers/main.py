@@ -26,7 +26,7 @@ def main():
     """
     a = 4
     b = 5
-    result = a + b
+    result = sum_of_two_numbers(a, b)
     print(f"The sum of {a} and {b} is {result}.")
 
 if __name__ == "__main__":
