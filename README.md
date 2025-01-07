@@ -26,12 +26,16 @@ Task: Learn and apply CI/CD principles and tools
 To check codestyle, you need to execute the command in the terminal
 ```
   make init codestyle
+  or
+  python -m pylint **/*.py
 ```
 
 ## How to run tests and check test coverage
 To run unit tests, you need to execute the command in the terminal
 ```
   make init test
+  or
+  python -m unittest discover -s . -p "*tests*.py"
 ```
 
 ## How to execute project
