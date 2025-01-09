@@ -8,7 +8,6 @@ codestyle:
 test:
 	coverage run --source=project_sum_two_numbers -m unittest discover -s . -p "*tests*.py"
 	coverage xml
-#	python unit_tests.py
 
 build:
 	python setup.py sdist bdist_wheel

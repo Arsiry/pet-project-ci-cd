@@ -1,20 +1,17 @@
 """
-Unit tests for the `sum_of_two_numbers` function and `read_and_display_file_content`.
+Unit tests for the `sum_of_two_numbers` function and `read_file`.
 
 This module contains:
 - A test class `TestSumOfTwoNumbers` with various test cases for the `sum_of_two_numbers` function.
-- A test class `TestReadAndDisplayFileContent` for the `read_and_display_file_content` function.
+- A test class `TestReadFile` with various test cases for the `read_file` function.
 """
 
 import unittest
-#from unittest.mock import patch, mock_open
-#from io import StringIO
-#import os
+from unittest.mock import patch, mock_open
+import os
 
-
-# Import the function to be tested
-from project_sum_two_numbers import sum_of_two_numbers#, read_and_display_file_content
-#from project_sum_two_numbers.main import main
+# Import the functions to be tested
+from project_sum_two_numbers.main import sum_of_two_numbers, read_file
 
 
 class TestSumOfTwoNumbers(unittest.TestCase):
@@ -41,6 +38,30 @@ class TestSumOfTwoNumbers(unittest.TestCase):
     def test_floats(self):
         """Test the sum of two floating-point numbers."""
         self.assertAlmostEqual(sum_of_two_numbers(3.5, 2.1), 5.6)
+
+
+class TestReadFile(unittest.TestCase):
+    """
+    Test class for the function read_file.
+    """
+
+    @patch("builtins.open", new_callable=mock_open, read_data="Hello world!")
+    def test_read_file_success(self, mock_file):
+        """Test successful reading of the file."""
+        expected_content = "Hello world!"
+        file_path = os.path.join(os.path.dirname(__file__), 'data', 'sample.txt')
+
+        # Mock os.path.join to return a fixed file path
+        with patch("os.path.join", return_value=file_path):
+            content = read_file()
+            self.assertEqual(content, expected_content)
+
+    @patch("builtins.open", side_effect=FileNotFoundError)
+    def test_file_not_found(self, mock_file):
+        """Test handling of a missing file."""
+        with patch("os.path.join", return_value="nonexistent_file.txt"):
+            content = read_file()
+            self.assertEqual(content, "File not found.")
 
 
 if __name__ == "__main__":
