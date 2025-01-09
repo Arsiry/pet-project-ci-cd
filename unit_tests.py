@@ -8,6 +8,7 @@ This module contains:
 
 import unittest
 from unittest.mock import patch, mock_open
+import io
 import os
 
 # Import the functions to be tested
@@ -62,6 +63,23 @@ class TestReadFile(unittest.TestCase):
         with patch("os.path.join", return_value="nonexistent_file.txt"):
             content = read_file()
             self.assertEqual(content, "File not found.")
+
+
+class TestMainFunction(unittest.TestCase):
+    """
+    Test class for the main function.
+    """
+
+    @patch("builtins.open", new_callable=mock_open, read_data="Hello world!")
+    @patch("project_sum_two_numbers.main.sum_of_two_numbers", return_value=9)
+    def test_main_output(self, mock_sum, mock_file):
+        """Test main function output."""
+        expected_output = "The sum of 4 and 5 is 9.\nContent of the file:\nHello world!\n"
+
+        # Capture output
+        with patch("sys.stdout", new=io.StringIO()) as fake_output:
+            unittest.main()
+            self.assertEqual(fake_output.getvalue(), expected_output)
 
 
 if __name__ == "__main__":
