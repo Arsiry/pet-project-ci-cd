@@ -8,6 +8,7 @@ This script includes:
 """
 
 import os
+import importlib.resources
 
 # Function to calculate the sum of two numbers
 def sum_of_two_numbers(a, b):
@@ -23,26 +24,22 @@ def sum_of_two_numbers(a, b):
     """
     return a + b
 
-# Function to reading from a file and displaying its content
-def read_and_display_file_content(file_path):
+# Function to read from a file and display its content
+def read_and_display_file_content_from_package():
     """
-    Reads and displays the content of a given file.
-
-    Parameters:
-    file_path (str): Relative path to the file.
+    Reads and displays the content of 'sample.txt' from the package.
 
     Returns:
     None
     """
-    # Get the absolute path to the file relative to the current script
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    full_path = os.path.join(base_dir, file_path)
-    if os.path.exists(full_path):
-        with open(full_path, 'r', encoding='utf-8') as file:
+    try:
+        # Use importlib.resources to open the file from the package
+        with importlib.resources.open_text('project_sum_two_numbers.data', 'sample.txt') as file:
             content = file.read()
         print(content)
-    else:
-        print(f"File '{full_path}' not found.")
+    except FileNotFoundError:
+        print("File 'sample.txt' not found in the package.")
+
 
 def main():
     """
@@ -54,9 +51,8 @@ def main():
     result = sum_of_two_numbers(a, b)
     print(f"The sum of {a} and {b} is {result}.")
 
-    # Reading from a file and displaying its content
-    file_path = os.path.join("data", "sample.txt")
-    read_and_display_file_content(file_path)
+    # Read and display file content from the package
+    read_and_display_file_content_from_package()
 
 if __name__ == "__main__":
     main()
