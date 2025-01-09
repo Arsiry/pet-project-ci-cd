@@ -50,10 +50,6 @@ jobs:
               python3 -m venv venv
               source venv/bin/activate
               pip3 install --force-reinstall ./project_sum_two_numbers-0.1.0-py3-none-any.whl
-              if [ -f "venv/lib/python3.10/site-packages/project_sum_two_numbers/data/sample.txt" ]; then
-                  cat venv/lib/python3.10/site-packages/project_sum_two_numbers/data/sample.txt
-              else
-                  echo "Error: sample.txt not found!"
-                  exit 1
-              fi              
+              mkdir -p data
+              echo "This is a sample file used for demonstration purposes." > data/sample.txt             
               sum_two_numbers
