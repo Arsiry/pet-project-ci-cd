@@ -1,18 +1,17 @@
 """
-Unit tests for the `sum_of_two_numbers` function and `read_file`.
+Extended unit tests for `sum_of_two_numbers`, `read_file`, and `main`.
 
 This module contains:
 - A test class `TestSumOfTwoNumbers` with various test cases for the `sum_of_two_numbers` function.
 - A test class `TestReadFile` with various test cases for the `read_file` function.
+- A test class `TestMainFunction` for testing the main function output.
 """
 
 import unittest
 from unittest.mock import patch, mock_open
-import io
 import os
-
-# Import the functions to be tested
-from project_sum_two_numbers.main import sum_of_two_numbers, read_file
+import io
+from project_sum_two_numbers.main import sum_of_two_numbers, read_file, main
 
 
 class TestSumOfTwoNumbers(unittest.TestCase):
@@ -78,10 +77,10 @@ class TestMainFunction(unittest.TestCase):
 
         # Capture output
         with patch("sys.stdout", new=io.StringIO()) as fake_output:
-            unittest.main()
+            main()
             self.assertEqual(fake_output.getvalue(), expected_output)
 
 
 if __name__ == "__main__":
-    # Run the unit tests
     unittest.main()
+    
