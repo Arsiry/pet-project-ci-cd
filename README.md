@@ -6,11 +6,16 @@
 
 [![Coverage](http://3.144.23.128:9000/api/project_badges/measure?project=sum-two-numbers&metric=coverage&token=sqb_1248e64573abae406ef0aa50c601fa4631c35c91)](http://3.144.23.128:9000/dashboard?id=sum-two-numbers)
 
-Simple python "pet" project for sum of two numbers calculation
-Task: Learn and apply CI/CD principles and tools
+Simple python "pet" project for sum of two numbers calculation and reading from a file and displaying its contents.
+
+Task 1: Learn and apply CI/CD principles and tools
+
+Task 2: Learn to work with Python packages
 
 ## Content
 * `project_sum_two_numbers\`, simple python project (sum of two numbers calculating)
+* `data\`, directory for sample data files 
+* `data\sample.txt`, a sample file with text "Hello world!"
 * `project_sum_two_numbers\main.py`, the main function and demonstration code
 * `project_sum_two_numbers\__init__.py`, imports and makes the function sum_of_two_numbers from main.py accessible
 * `unit_tests.py`, unit tests for python code

@@ -3,7 +3,6 @@ Script to calculate the sum of two numbers and read from a file.
 
 This script includes:
 - A function to calculate the sum of two numbers.
-- Command-line argument parsing for input.
 - Reading from a file and displaying its contents.
 """
 
